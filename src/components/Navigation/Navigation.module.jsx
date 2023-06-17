@@ -20,7 +20,7 @@ export const Logo = styled(NavLink)`
 
   :hover,
   :focus {
-    color: #fabb18;
+    color: lightblue;
     > span {
       color: #000000;
     }

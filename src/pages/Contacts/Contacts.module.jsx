@@ -5,7 +5,7 @@ export const AddUserIcon = styled(FaUserPlus)`
   width: 20px;
   height: 20px;
 
-  fill: #fabb18;
+  fill: lightblue;
 `;
 export const ContentPageContainer = styled.div`
   padding: 38px 48px;
@@ -23,7 +23,7 @@ export const Title = styled.h2`
   font-weight: 700;
   font-size: 34px;
 
-  margin: 0;
+  margin-right: 40px;
 `;
 
 export const FilterWrapper = styled.div`
@@ -84,7 +84,7 @@ export const Button = styled.button`
   :hover,
   :focus {
     color: #000000;
-    background-color: rgba(250, 187, 24, 0.1);
+    background-color: lightblue;
     border: 1px solid #000000;
     > svg {
       fill: #000000;
