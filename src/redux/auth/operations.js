@@ -19,7 +19,12 @@ export const register = createAsyncThunk(
       setAuthHeader(data.token);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      if (error.response) {
+        const errorMessage = error.response.data.message;
+        return thunkAPI.rejectWithValue(errorMessage);
+      } else {
+        return thunkAPI.rejectWithValue('An error occurred');
+      }
     }
   }
 );
@@ -32,7 +37,12 @@ export const logIn = createAsyncThunk(
       setAuthHeader(data.token);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      if (error.response) {
+        const errorMessage = error.response.data.message;
+        return thunkAPI.rejectWithValue(errorMessage);
+      } else {
+        return thunkAPI.rejectWithValue('An error occurred');
+      }
     }
   }
 );
@@ -42,7 +52,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.post('/users/logout');
     clearAuthHeader();
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(error.response.data.message);
   }
 });
 
@@ -58,7 +68,12 @@ export const refreshUser = createAsyncThunk(
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      if (error.response) {
+        const errorMessage = error.response.data.message;
+        return thunkAPI.rejectWithValue(errorMessage);
+      } else {
+        return thunkAPI.rejectWithValue('An error occurred');
+      }
     }
   }
 );
